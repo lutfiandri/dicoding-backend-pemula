@@ -1,0 +1,19 @@
+{
+  "name": "bookshelf-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:lutfiandri/dicoding-backend-pemula.git",
+  "author": "Lutfi Andriyanto <lutfiandri232@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=production node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^20.2.2",
+    "nanoid": "^3.x.x"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
