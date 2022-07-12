@@ -77,7 +77,25 @@ const addBookHandler = (request, h) => {
 };
 
 const getAllBooksHandler = (request, h) => {
-  const formattedBooks = books.map((book) => ({
+  const { name, reading, finished } = request.query;
+
+  const selectedBooks = books
+    .filter((book) => {
+      if (name) return book.name.toLowerCase().includes(name.toLowerCase());
+      return true;
+    })
+    .filter((book) => {
+      if (reading === '0') return book.reading === false;
+      if (reading === '1') return book.reading === true;
+      return true;
+    })
+    .filter((book) => {
+      if (finished === '0') return book.finished === false;
+      if (finished === '1') return book.finished === true;
+      return true;
+    });
+
+  const formattedBooks = selectedBooks.map((book) => ({
     id: book.id,
     name: book.name,
     publisher: book.publisher,
